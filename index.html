@@ -1,93 +1,33 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>โปรแกรมคำนวนน้ำหนักที่เหมาะสม</title>
-     <body style="background-image: url(img/6003.jpg);"></body>
-     
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .container {
-            max-width: 400px;
-            margin: auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        input[type="number"], input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-        .result {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #e2e3e5;
-            border-radius: 5px;
-            text-align: center;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ล็อกอิน</title>
+  <body style="background-image: url(img/images.jfif);"></body>
 </head>
 <body>
-
-<div class="container">
-    <h1>คำนวนน้ำหนักที่เหมาะสม</h1>
-    <label for="height">ความสูง (เซนติเมตร):</label>
-    <input type="number" id="height" placeholder="กรุณาใส่ความสูง" required>
-    
-    <label for="gender">เพศ:</label>
-    <input type="text" id="gender" placeholder="male หรือ female" required>
-    
-    <button onclick="calculateWeight()">คำนวณน้ำหนัก</button>
-    
-    <div class="result" id="result"></div>
-</div>
-
-<script>
-    function calculateWeight() {
-        const height = parseFloat(document.getElementById('height').value);
-        const gender = document.getElementById('gender').value.toLowerCase();
-        let weight;
-
-        if (gender === 'male') {
-            weight = 50 + 2.3 * ((height / 2.54) - 60); // สูตรสำหรับผู้ชาย
-        } else if (gender === 'female') {
-            weight = 45.5 + 2.3 * ((height / 2.54) - 60); // สูตรสำหรับผู้หญิง
-        } else {
-            document.getElementById('result').innerText = "กรุณาใส่เพศเป็น 'male' หรือ 'female'";
-            return;
-        }
-
-        document.getElementById('result').innerText =`น้ำหนักเหมาะสมสำหรับคุณคือ: ${weight.toFixed(2)} กิโลกรัม`;
+  <h1>ล็อกอิน</h1>
+  <form action="product.html" method="post">
+    <label for="username">ชื่อผู้ใช้:</label>
+    <input type="text" id="username" name="username"><br><br>
+    <label for="password">รหัสผ่าน:</label>
+    <input type="password" id="password" name="password"><br><br>
+    <input type="submit" value="ล็อกอิน">
+  </form>
+  <script>
+    // ตรวจสอบการล็อกอิน
+    function checkLogin() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      if (username === "admin" && password === "password") {
+        // ล็อกอินสำเร็จ
+        window.location.href = "product.html";
+      } else {
+        // ล็อกอินไม่สำเร็จ
+        alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+      }
     }
-</script>
- <body>
-    <a href="index..html">ย้อนไปหน้าเเรก</a>
- </body>
+  </script>
 </body>
 </html>
