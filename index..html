@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คำนวณอายุ</title>
+    <body style="background-image: url(img/hq720.jpg);"></body>
+    <body>
+        <a href="index.html">ไปยังอีกหน้า</a>
+    </body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            padding: 50px;
+        }
+        input[type="date"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>คำนวณอายุของคุณ(กดตรงปฎิทินนะคะ)</h1>
+    <label for="dob">กรุณาเลือกวันเกิดของคุณ:</label><br>
+    <input type="date" id="dob" required>
+    <br>
+    <button onclick="calculateAge()">คำนวณอายุ</button>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function calculateAge() {
+            const dob = new Date(document.getElementById("dob").value);
+            const today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            const monthDifference = today.getMonth() - dob.getMonth();
+
+            // ตรวจสอบว่าต้องลดอายุลงหรือไม่
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+
+            document.getElementById("result").innerText =` อายุของคุณคือ ${age} ปี`;
+        }
+    </script>
+
+</body>
+</html>
